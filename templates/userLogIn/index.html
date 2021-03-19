@@ -1,0 +1,412 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>ChatV1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <!-- Font Awesome File -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ 
+ 
+</head>
+
+<body>
+
+  <div class="container app">
+    <div class="row app-one">
+
+      <div class="col-sm-4 side">
+        <div class="side-one">
+          <!-- Heading -->
+          <div class="row heading">
+            <div class="col-sm-3 col-xs-3 heading-avatar">
+              <div class="heading-avatar-icon">
+                <img src="#">
+              </div>
+            </div>
+            <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
+              <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="col-sm-2 col-xs-2 heading-compose  pull-right">
+              <i class="fa fa-comments fa-2x  pull-right" aria-hidden="true"></i>
+            </div>
+          </div>
+          <!-- Heading End -->
+
+          <!-- SearchBox -->
+          <div class="row searchBox">
+            <div class="col-sm-12 searchBox-inner">
+              <div class="form-group has-feedback">
+                <!-- <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span> -->
+                <form class="" method="GET" action="" >
+                  <input class="" type="search" name="search"> 
+                  <button class="" type="submit"> Search </button>
+              </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search Box End -->
+          <!-- sideBar -->
+          <div class="row sideBar">
+            {% if result  %}
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  <div class="avatar-icon">
+                    <img src="#">
+                  </div>
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">{{result}} 
+                        <button class="ml-3 test"  data-id = {{result.id}} onclick="myFunction()" id="myButton" value="Add Friend">Add Friend</button>
+                      </span>
+                    </div>
+                    <!-- <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">{{user.last_login}}</span>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            {% else %}
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">Friend List
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>   
+            {% endif %}
+
+            {% for user in friend_list %}
+            
+            <div class="row sideBar-body">
+              <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                <div class="avatar-icon">
+                  <img src="#">
+                </div>
+              </div>
+              <div class="col-sm-9 col-xs-9 sideBar-main">
+                <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">{{user}}
+                  </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">{{user.last_login}}
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+          <!-- Sidebar End -->
+        </div>
+        <div class="side-two">
+
+          <!-- Heading -->
+          <div class="row newMessage-heading">
+            <div class="row newMessage-main">
+              <div class="col-sm-2 col-xs-2 newMessage-back">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              </div>
+              <div class="col-sm-10 col-xs-10 newMessage-title">
+                New Chat
+              </div>
+            </div>
+          </div>
+          <!-- Heading End -->
+
+          <!-- ComposeBox -->
+          <div class="row composeBox">
+            <div class="col-sm-12 composeBox-inner">
+              <div class="form-group has-feedback">
+                <input id="composeText" type="text" class="form-control" name="searchText" placeholder="Search People">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </div>
+          </div>
+          <!-- ComposeBox End -->
+
+          <!-- sideBar -->
+          <div class="row compose-sideBar">
+          
+
+          
+            <div class="row sideBar-body">
+              <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                <div class="avatar-icon">
+                  <img src="#">
+                </div>
+              </div>
+              <div class="col-sm-9 col-xs-9 sideBar-main">
+                <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">Anurag Nadda
+                  </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">12:12
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row sideBar-body">
+              <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                <div class="avatar-icon">
+                  <img src="#">
+                </div>
+              </div>
+              <div class="col-sm-9 col-xs-9 sideBar-main">
+                <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">Anurag Nadda
+                  </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">12:12
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row sideBar-body">
+              <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                <div class="avatar-icon">
+                  <img src="#">
+                </div>
+              </div>
+              <div class="col-sm-9 col-xs-9 sideBar-main">
+                <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">Anurag Nadda
+                  </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">12:12
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row sideBar-body">
+              <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                <div class="avatar-icon">
+                  <img src="#">
+                </div>
+              </div>
+              <div class="col-sm-9 col-xs-9 sideBar-main">
+                <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">Anurag Nadda
+                  </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">12:12
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row sideBar-body">
+              <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                <div class="avatar-icon">
+                  <img src="#">
+                </div>
+              </div>
+              <div class="col-sm-9 col-xs-9 sideBar-main">
+                <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">Anurag Nadda
+                  </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">12:12
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row sideBar-body">
+              <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                <div class="avatar-icon">
+                  <img src="#">
+                </div>
+              </div>
+              <div class="col-sm-9 col-xs-9 sideBar-main">
+                <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">Anurag Nadda
+                  </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">12:12
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sidebar End -->
+      </div>
+
+
+      <!-- New Message Sidebar End -->
+
+      <!-- Conversation Start -->
+      <div class="col-sm-8 conversation">
+        <!-- Heading -->
+        <div class="row heading">
+          <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
+            <div class="heading-avatar-icon">
+              <img src="">
+            </div>
+          </div>
+          <div class="col-sm-8 col-xs-7 heading-name">
+            <a class="heading-name-meta">Anurag Nadda
+            </a>
+            <span class="heading-online">Online</span>
+          </div>
+            <!--Notifications-->
+            
+        <button type="button" class="btn btn-primary pull-right dropdown">
+          <a href="{% url 'show' %}">Notifications</a> {{no_of_notifications}}
+                <!-- <span class="badge-light">{{no_of_notifications}} </span> Notifications -->
+                <span class="sr-only">unread messages</span>
+              </button>  
+              
+  
+               
+            <a class="heading-name-meta pull-left" >{{user}}
+            </a>
+            <a href="/logout/">logout</a>
+        </div>
+        <!-- Heading End -->
+
+        <!-- Message Box -->
+        <div class="row message" id="conversation">
+
+          <div class="row message-previous">
+            <div class="col-sm-12 previous">
+              <a onclick="previous(this)" id="" name="20">
+              Show Previous Message!
+              </a>
+            </div>
+          </div>
+
+          <div class="row message-body">
+            <div class="col-sm-12 message-main-receiver">
+              <div class="receiver">
+                <div class="message-text">
+                 Hyy, Its Awesome..!
+                </div>
+                <span class="message-time pull-right">
+                  Sun
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row message-body">
+            <div class="col-sm-12 message-main-sender">
+              <div class="sender">
+                <div class="message-text">
+                  {{user}}
+                </div>
+                <span class="message-time pull-right">
+                  Sun
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Message Box End -->
+
+        <!-- Reply Box -->
+        <div class="row reply">
+          <div class="col-sm-1 col-xs-1 reply-emojis">
+            <i class="fa fa-smile-o fa-2x"></i>
+          </div>
+          <div class="col-sm-9 col-xs-9 reply-main">
+            <textarea class="form-control" rows="1" id="comment"></textarea>
+          </div>
+          <div class="col-sm-1 col-xs-1 reply-recording">
+            <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+          </div>
+          <div class="col-sm-1 col-xs-1 reply-send">
+            <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+          </div>
+        </div>
+        <!-- Reply Box End -->
+      </div>
+      <!-- Conversation End -->
+    </div>
+    <!-- App One End -->
+  </div>
+  <script>
+    $(".test").click( function() {
+      var id = $(this).attr('data-id');
+      var sid = {{request.user.id}};
+      console.log(sid);
+      console.log(id);
+      $.ajax({
+          url: '{% url "request" %}',
+          data: { id : id, sid : sid},
+          dataType: 'json',
+          success: function (data) {
+            console.log("abcabc",data);
+            if (data.is_taken) {
+            alert("request send");
+          }
+         
+        }
+      })
+    });
+
+
+    function myFunction() {
+
+      var btn = document.getElementById("myButton");
+  
+
+      if (btn.value == "Add Friend") {
+          btn.value = "Cancel Request";
+          btn.innerHTML = "Cancel Request";
+          btn.disabled = false;
+      
+      } 
+      else {
+          btn.value = "Request already send";
+          btn.innerHTML = "Request already send";
+          btn.disabled = true;
+      }
+
+}
+  </script>
+  <!-- App End -->
+</body>
+
+</html>

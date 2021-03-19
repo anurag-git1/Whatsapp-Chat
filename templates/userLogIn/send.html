@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="all_users">
+        {% for user in allusers %}
+        {% if not user.is_superuser %}
+        {% if user not in request.user.friends.all and user != request.user %}
+        <h1>{{user}}<a href="/request/{{user.id}}">send friend request</a></h1>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+
+    </ul>
+</body>
+</html>

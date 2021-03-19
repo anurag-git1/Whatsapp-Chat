@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+{% load rest_framework %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST" id="id-login-form" class="form-vertical">
+            {% csrf_token %}
+            {% render_form serializer %}
+            
+            <input type="submit" value="SignUp">
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>
