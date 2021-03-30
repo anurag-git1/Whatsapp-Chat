@@ -7,22 +7,26 @@
 </head>
 <body>
     
-        <!-- {% if accept_reject.status == "true" %}
-            <li>Sorry, no friendrequest in this list.</li>
-        {% else %} -->
-        
-        <!-- {{accept_reject.status}} -->
+            {{current_user}}
             {% for number in number %}
-                <form method="POST">
-                    {%csrf_token%}
-                    <input type="hidden" name="reciever_id" value={{ number.id }}>
-                    <a href="#">{{number}}</a>
-                    <input type="submit" value="Reject" name="status">
-                    <input type="submit" value="Accept" name="status">
-                </form>
+            {% if number.status == "a" %}
+                <li>Sorry, no friendrequest in this list {{user}}.</li>
+            {% else %}
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="reciever_id" value={{ number.id }}>
+                <a href="#">{{number}}</a>
+                <input type="submit" value="Reject" name="status">
+                <input type="submit" value="Accept" name="status">
+            </form>
+            {%endif%}
+            
             {% endfor %}
-        <!-- {% endif %} -->
+       
+
+
+
     
-    <!-- {{accept_reject.status}} -->
+   
 </body>
 </html>

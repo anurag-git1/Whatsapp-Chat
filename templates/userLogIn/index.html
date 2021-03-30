@@ -28,7 +28,7 @@
           <div class="row heading">
             <div class="col-sm-3 col-xs-3 heading-avatar">
               <div class="heading-avatar-icon">
-                <img src="#">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
               </div>
             </div>
             <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
@@ -61,7 +61,7 @@
               <div class="row sideBar-body">
                 <div class="col-sm-3 col-xs-3 sideBar-avatar">
                   <div class="avatar-icon">
-                    <img src="#">
+                    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                   </div>
                 </div>
                 <div class="col-sm-9 col-xs-9 sideBar-main">
@@ -99,17 +99,18 @@
 
             {% for user in friend_list %}
             
+            
             <div class="row sideBar-body">
               <div class="col-sm-3 col-xs-3 sideBar-avatar">
                 <div class="avatar-icon">
-                  <img src="#">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                 </div>
               </div>
               <div class="col-sm-9 col-xs-9 sideBar-main">
                 <div class="row">
                   <div class="col-sm-8 col-xs-8 sideBar-name">
-                    <span class="name-meta">{{user}}
-                  </span>
+                    <a href="{% url 'profile' user.id %}" class="name-meta">{{user}}
+                    </a>
                   </div>
                   <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
                     <span class="time-meta pull-right">{{user.last_login}}
@@ -150,14 +151,14 @@
           <!-- ComposeBox End -->
 
           <!-- sideBar -->
-          <div class="row compose-sideBar">
+          <!-- <div class="row compose-sideBar">
           
 
           
             <div class="row sideBar-body">
               <div class="col-sm-3 col-xs-3 sideBar-avatar">
                 <div class="avatar-icon">
-                  <img src="#">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                 </div>
               </div>
               <div class="col-sm-9 col-xs-9 sideBar-main">
@@ -176,7 +177,7 @@
             <div class="row sideBar-body">
               <div class="col-sm-3 col-xs-3 sideBar-avatar">
                 <div class="avatar-icon">
-                  <img src="#">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                 </div>
               </div>
               <div class="col-sm-9 col-xs-9 sideBar-main">
@@ -195,7 +196,7 @@
             <div class="row sideBar-body">
               <div class="col-sm-3 col-xs-3 sideBar-avatar">
                 <div class="avatar-icon">
-                  <img src="#">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                 </div>
               </div>
               <div class="col-sm-9 col-xs-9 sideBar-main">
@@ -214,7 +215,7 @@
             <div class="row sideBar-body">
               <div class="col-sm-3 col-xs-3 sideBar-avatar">
                 <div class="avatar-icon">
-                  <img src="#">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                 </div>
               </div>
               <div class="col-sm-9 col-xs-9 sideBar-main">
@@ -233,7 +234,7 @@
             <div class="row sideBar-body">
               <div class="col-sm-3 col-xs-3 sideBar-avatar">
                 <div class="avatar-icon">
-                  <img src="#">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                 </div>
               </div>
               <div class="col-sm-9 col-xs-9 sideBar-main">
@@ -252,7 +253,7 @@
             <div class="row sideBar-body">
               <div class="col-sm-3 col-xs-3 sideBar-avatar">
                 <div class="avatar-icon">
-                  <img src="#">
+                  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
                 </div>
               </div>
               <div class="col-sm-9 col-xs-9 sideBar-main">
@@ -268,11 +269,12 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- Sidebar End -->
       </div>
 
+      
 
       <!-- New Message Sidebar End -->
 
@@ -282,7 +284,7 @@
         <div class="row heading">
           <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
             <div class="heading-avatar-icon">
-              <img src="">
+              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
             </div>
           </div>
           <div class="col-sm-8 col-xs-7 heading-name">
