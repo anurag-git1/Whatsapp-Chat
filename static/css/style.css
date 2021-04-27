@@ -2,7 +2,7 @@ html,
 body,
 div,
 span {
-  height: 100%;
+  height: auto;
   width: 100%;
   overflow: hidden;
   padding: 0;
@@ -200,6 +200,7 @@ body {
 .sideBar-main .row {
   padding: 0 !important;
   margin: 0 !important;
+  
 }
 
 .sideBar-name {
@@ -311,7 +312,7 @@ body {
   /*overflow-y: auto;*/
 }
 
-/* .message {
+.message {
   padding: 0 !important;
   margin: 0 !important;
   background: url("w.jpg") no-repeat fixed center;
@@ -319,7 +320,8 @@ body {
   overflow-y: auto;
   border: 1px solid #f7f7f7;
   height: calc(100% - 120px);
-} */
+  margin-bottom: 320px;
+}
 .message-previous {
   margin : 0 !important;
   padding: 0 !important;
@@ -520,6 +522,7 @@ body {
   .sideBar-main .row {
     padding: 0 !important;
     margin: 0 !important;
+    
   }
   .sideBar-name {
     padding: 10px 5px !important;
@@ -550,8 +553,10 @@ body {
   .message {
     height: calc(100% - 140px);
   }
+
+  }
   .reply {
-    height: 70px;
+    height: 70px; 
   }
   .reply-emojis {
     padding: 5px 0 !important;
@@ -581,4 +586,5 @@ body {
     padding: 5px 2px 5px 0 !important;
     font-size: 1.8em !important;
   }
+ 
 }

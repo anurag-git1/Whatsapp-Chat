@@ -189,6 +189,7 @@ def edit_profile(request):
             portfolio = form.save(commit=False)
             portfolio.user = current_user
             portfolio.save()
+            
             return redirect('success') 
     else: 
         form = ProfileForm()  

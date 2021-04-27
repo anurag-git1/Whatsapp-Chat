@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ["localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,8 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'userLogIn',
+    'chat',
     # 'friendRequest',
     'rest_framework',
+    
+
 ]
 
 MIDDLEWARE = [
@@ -75,6 +79,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'chat1.wsgi.application'
+# Channels
+ASGI_APPLICATION = "chat1.asgi.application"
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
 
 
 # Database

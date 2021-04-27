@@ -7,7 +7,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.staticfiles.urls import static
 
 urlpatterns = [
-    path('chat/', views.index, name="index"),
+    path('chats/', views.index, name="index"),
     path('',views.signup,name="signup"),
     url(r'^login/$', LoginView.as_view(template_name="userLogIn/login.html"), name='login'),
     url(r'^logout/$', LogoutView.as_view( next_page='/login/'), name='logout'),

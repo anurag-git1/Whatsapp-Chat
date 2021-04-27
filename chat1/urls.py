@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import userLogIn
+import userLogIn,chat
 from django.conf import settings
 from django.conf.urls.static import static
 # from friendRequest import views
@@ -23,6 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("userLogIn.urls")),
+    path("chat/",include("chat.urls")),
+
     # path("accept_friend_request/<int:requestID>/",views.accept_friend_request, name="accept_friend_request"),
     # path("send_friend_request/<int:userID>/",views.send_friend_request, name="send_friend_request"),
 ]
