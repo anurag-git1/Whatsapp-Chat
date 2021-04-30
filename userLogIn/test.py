@@ -213,4 +213,12 @@ print(fizzbuzz)
 
 [print(n) for n in range(1, 11,2)]
 
-    
+fruits = ['lemon', 'pear', 'watermelon', 'tomato']
+first,second,*remaining = fruits
+print(first)
+
+
+date_info = {'year': "2020", 'month': "01", 'day': "01"}
+track_info = {'artist': "Beethoven", 'title': 'Symphony No 5'}
+all_info = {**date_info, **track_info, 'name':'Anurag'}   
+print(all_info)

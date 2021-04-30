@@ -16,8 +16,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = BASE_DIR/'templates'
 STATIC_DIR = BASE_DIR/'static'
-print(TEMPLATES_DIR)
-print(BASE_DIR)
+print("template",TEMPLATES_DIR)
+print("base dir",BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +29,7 @@ SECRET_KEY = 'x+lt1p@*l*om^_)z0hjst+w)4hrlm93y#c(6g-b4c)c+mkmbf$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = ["localhost",'192.168.1.12']
 
 
 # Application definition
@@ -81,14 +81,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'chat1.wsgi.application'
 # Channels
 ASGI_APPLICATION = "chat1.asgi.application"
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [('127.0.0.1', 6379)],
-#         },
-#     },
-# }
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 # Database
@@ -113,6 +113,9 @@ DATABASES = {
         'PASSWORD':DB_PASSWORD,
         'HOST':'localhost',
         'PORT':'5432',
+        # 'TEST': {
+        #     'NAME': BASE_DIR / 'db_test.postgresql_psycopg2'
+        #     }
     }
 }
 
@@ -140,7 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
